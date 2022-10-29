@@ -11,6 +11,18 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+      integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+      crossorigin=""
+    />
+    <style>
+      #map {
+        height: 280px;
+        width: 100%;
+      }
+    </style>
 
     <title>Jabar Tradifood</title>
   </head>
@@ -359,6 +371,20 @@
           </div>
         </div>
       </div>
+      <hr />
+      <div class="row m-4">
+        <div class="p-5 mb-4 rounded-3">
+          <div class="container-fluid text-center">
+            <h1 class="display-5 fw-bold mb-5">Masakan</h1>
+            <p class="col-lg-12 fs-4" style="text-align: center">
+              Makanan khas Jawa Barat mempunyai karakteristiknya sendiri
+              misalnya untuk makanan lauk biasanya memiliki rasa yang cederung
+              asam dan pedas, menggunakan sayur mentah sebagai pendamping atau
+              lalapan, banyak masakan yang menggunakan ikan.
+            </p>
+          </div>
+        </div>
+      </div>
       <div class="row m-4">
         <div
           class="col-lg-12 border-top border-bottom rounded-2"
@@ -486,7 +512,29 @@
           </div>
         </div>
       </div>
-      <div class="row m-3"></div>
+      <hr />
+      <div class="row m-3">
+        <div class="row m-1 align-items-md-stretch">
+          <div class="col-md-6">
+            <div class="h-100 p-5 text-bg-dark rounded-3">
+              <h2>Jawa Barat</h2>
+              <p>
+                adalah sebuah provinsi di Indonesia, ibu kotanya berada di kota
+                Bandung. Pada tahun 2021 penduduk provinsi Jawa Barat berjumlah
+                48.782.408 jiwa, dengan kepadatan 1.379 jiwa/km2.Berdasarkan
+                sensus BPS pada tahun 2010, penduduk di Jawa Barat merupakan
+                provinsi dengan penduduk terbanyak pertama di Indonesia,
+                penduduk aslinya merupakan suku Sunda.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="bg-light border rounded-3">
+              <div id="map"></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
     <div class="container">
       <footer
@@ -563,10 +611,21 @@
       integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
       crossorigin="anonymous"
     ></script>
+    <script
+      src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
+      integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
+      crossorigin=""
+    ></script>
     <script>
       function pesan() {
         window.location.href = "./pages/DetailMasakan.html";
       }
+      var map = L.map("map").setView([51.505, -0.09], 13);
+      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 19,
+        attribution:
+          '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      }).addTo(map);
     </script>
   </body>
 </html>
